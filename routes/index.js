@@ -1,9 +1,17 @@
-var express = require('express');
-var router = express.Router();
+const express = require('express')
+const router = express.Router()
 
-/* GET home page. */
-router.get('/', function(req, res, next) {
-  res.render('index', { title: 'Express' });
-});
+router.get('/', (req, res) => {
+  res.send({
+    title: 'High Skill Masters API',
+  })
+})
 
-module.exports = router;
+router.post('/subscribe', (req, res) => {
+  res.send({
+    message: 'Email is successfully subscribed.',
+    email: req.body.email,
+  })
+})
+
+module.exports = router
