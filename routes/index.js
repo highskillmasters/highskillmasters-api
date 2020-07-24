@@ -9,6 +9,12 @@ router.get('/', (req, res) => {
   })
 })
 
+router.get('/subscribe', (req, res) => {
+  res.send({
+    message: 'Subscribe',
+  })
+})
+
 router.post('/subscribe', async (req, res) => {
   const newMember = {
     email: req.body.email,
