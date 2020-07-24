@@ -16,16 +16,18 @@ router.get('/subscribe', (req, res) => {
 })
 
 router.post('/subscribe', async (req, res) => {
-  const newMember = {
+  await Member.create({
+    email: req.body.email,
+  })
+
+  const response = {
+    message: 'Email is successfully subscribed',
     email: req.body.email,
   }
 
-  await Member.create(newMember)
-
-  res.send({
-    message: 'Email is successfully subscribed',
-    email: newMember.email,
-  })
+  const datetime = new Date()
+  console.info(`[SUBSCRIBER][${datetime.toISOString()}] ${req.body.email}`)
+  res.send(response)
 })
 
 module.exports = router
