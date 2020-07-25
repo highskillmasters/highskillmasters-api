@@ -1,4 +1,4 @@
-const mongoose = require('../../config/mongoose')
+const mongoose = require('mongoose')
 const AutoIncrement = require('mongoose-sequence')(mongoose)
 const Schema = mongoose.Schema
 
