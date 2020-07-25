@@ -4,6 +4,6 @@ const router = express.Router()
 const { index, createMember } = require('./controller')
 
 router.get('/', index)
-router.get('/', createMember)
+router.post('/members', createMember)
 
 module.exports = router
