@@ -1,5 +1,6 @@
 const express = require('express')
 const router = express.Router()
+const crypto = require('crypto')
 
 const Member = require('./model')
 const Token = require('../tokens/model')
@@ -32,7 +33,9 @@ router.post('/subscribe', async (req, res) => {
       })
       const newVerifyCode = await Token.create({
         memberId: newMember._id,
-        code: 'abcdefghijklmnopqrstuvwxyz',
+        code:
+          crypto.randomBytes(16).toString('hex') ||
+          'abcdefghijklmnopqrstuvwxyz',
       })
       // Compose email
       const emailData = {
@@ -43,7 +46,7 @@ router.post('/subscribe', async (req, res) => {
 Please verify your email by clicking this link:
 ${process.env.DOMAIN_URL}/members/verify?email=${emailAddress}&code=${newVerifyCode.code}
 
-Thank you!
+Thank you,
 High Skill Masters`,
       }
 
