@@ -2,6 +2,7 @@ const express = require('express')
 const router = express.Router()
 
 const Member = require('./model')
+const Token = require('../tokens/model')
 
 const email = require('../../utils/email')
 const log = require('../../utils/log')
