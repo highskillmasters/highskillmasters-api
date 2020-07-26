@@ -6,8 +6,14 @@ const MemberSchema = Schema(
   {
     email: {
       type: String,
+      index: true,
+      unique: true,
       required: [true, 'Email is required'],
       min: [2, 'Email is too short'],
+    },
+    isVerified: {
+      type: Boolean,
+      default: false,
     },
   },
   {
@@ -16,7 +22,7 @@ const MemberSchema = Schema(
 )
 
 MemberSchema.plugin(AutoIncrement, {
-  id: 'memberss_counter',
+  id: 'members_id_counter',
   inc_field: 'id',
 })
 
