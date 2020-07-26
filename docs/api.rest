@@ -2,7 +2,7 @@
 GET http://localhost:3000
 
 ### Subscribe new member
-POST http://localhost:3000/subscribe
+POST http://localhost:3000/members/subscribe
 Content-Type: application/json
 
 {
