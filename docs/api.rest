@@ -1,10 +1,13 @@
 ### Get index
 GET http://localhost:3000
 
-### Subscribe new member
+### Subscribe new member email
 POST http://localhost:3000/members/subscribe
 Content-Type: application/json
 
 {
   "email": "haidar@example.com"
 }
+
+### Verify member email
+GET http://localhost:3000/members/verify?email=haidar@example.com

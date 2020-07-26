@@ -12,4 +12,4 @@ High Skill Masters API allows you to:
 | `/`                    | GET    | Hello message        | -       | -                      |
 | `/members/subscribe`   | POST   | Subscribe new member | `email` | -                      |
 | `/members/unsubscribe` | POST   | Unsubscribe member   | `email` | -                      |
-| `/members/verify`      | POST   | Verify member email  | -       | `email`, `verify_code` |
+| `/members/verify`      | GET    | Verify member email  | -       | `email`, `verify_code` |

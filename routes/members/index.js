@@ -19,23 +19,24 @@ router.get('/subscribe', (req, res) => {
 })
 
 router.post('/subscribe', async (req, res) => {
-  const member = await Member.findOne({ email: req.body.email })
+  const emailAddress = req.body.email
+  const member = await Member.findOne({ email: emailAddress })
 
   if (member) {
     // Response if member email is duplicate
-    log.info('MEMBER_SUBSCRIBE_FAILED', req.body.email)
+    log.info('MEMBER_SUBSCRIBE_FAILED', emailAddress)
     res.status(400).send({
       message: 'Subscribe email failed because already subscribed',
-      email: req.body.email,
+      email: emailAddress,
     })
   } else {
     try {
       // Response if member email is new
       await Member.create({
-        email: req.body.email,
+        email: emailAddress,
       })
       const emailData = {
-        to: req.body.email,
+        to: emailAddress,
         subject: 'Verify email on High Skill Masters',
         text: 'Please verify your email. Thank you!',
       }
@@ -45,19 +46,19 @@ router.post('/subscribe', async (req, res) => {
       if (!sendEmailResult) {
         throw new Error('Send email failed')
       } else {
-        log.info('MEMBER_SUBSCRIBE_SUCCESS', req.body.email)
+        log.info('MEMBER_SUBSCRIBE_SUCCESS', emailAddress)
         res.status(400).send({
           message: 'Subscribe email success',
-          email: req.body.email,
+          email: emailAddress,
           emailData: emailData,
         })
       }
     } catch (error) {
       // Response if member email is failed
-      log.info('MEMBER_SUBSCRIBE_FAILED', req.body.email)
+      log.info('MEMBER_SUBSCRIBE_FAILED', emailAddress)
       res.status(500).send({
         message: 'Subscribe email failed',
-        email: req.body.email,
+        email: emailAddress,
         error: error.message,
       })
     }
@@ -70,25 +71,23 @@ router.get('/unsubscribe', (req, res) => {
   })
 })
 
-router.post('/verify', async (req, res) => {
-  const emailData = {
-    to: req.body.email,
-    subject: 'Your email verified',
-    text: 'Your email is now verified. Thank you!',
-  }
+router.get('/verify', async (req, res) => {
+  const emailAddress = req.params.email
+  const verifyCode = req.params.verify_code
 
-  const member = await member.findOne({ email: req.body.email })
+  const member = await member.findOne({ email: emailAddress })
 
   if (!member) {
     // Response if member email is not found
+    log.info('MEMBER_VERIFY_FAILED', emailAddress)
     res.status(400).send({
-      message: 'Email is not found',
+      message: 'Member email is not found',
     })
   } else {
     // Response if member email is found
     const result = await Member.findOneAndUpdate(
       {
-        email: req.body.email,
+        email: emailAddress,
       },
       {
         isVerified: true,
@@ -98,11 +97,17 @@ router.post('/verify', async (req, res) => {
       }
     )
 
+    const emailData = {
+      to: emailAddress,
+      subject: 'Your email is verified on High Skill Masters',
+      text: 'Congratulations! Your email is now verified. Thank you!',
+    }
     // email.send(emailData)
-    log.info('MEMBER_VERIFIED', req.body.email)
+
+    log.info('MEMBER_VERIFIED', emailAddress)
     res.status(200).send({
-      message: 'Verify email success',
-      email: req.body.email,
+      message: 'Verify member email success',
+      email: emailAddress,
       result: result,
     })
   }
