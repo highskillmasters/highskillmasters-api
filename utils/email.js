@@ -21,10 +21,10 @@ const email = {
         text: emailData.text,
       }
 
-      // mg.messages().send(data, (error, body) => {
-      //   if (error) return false
-      //   log.info('MAILGUN_SEND_EMAIL', `${emailData.to} ${body.message}`)
-      // })
+      mg.messages().send(data, (error, body) => {
+        if (error) return false
+        log.info('MAILGUN_SEND_EMAIL', `${emailData.to} ${body.message}`)
+      })
 
       return true
     } catch (error) {
