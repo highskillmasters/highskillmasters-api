@@ -10,6 +10,7 @@ High Skill Masters API allows you to:
 Edit the `.env` file:
 
 ```
+PLATFORM_API_KEY=
 DOMAIN_URL=
 MONGODB_URI=
 MAILGUN_API_KEY=

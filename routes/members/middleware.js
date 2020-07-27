@@ -46,7 +46,7 @@ const members = {
           text: `Hello,
         
 Please verify your email by clicking this link:
-${process.env.DOMAIN_URL}/members/verify?email=${emailAddress}&code=${newVerifyCode.code}
+${process.env.DOMAIN_URL}/verify?email=${emailAddress}&code=${newVerifyCode.code}
 
 Thank you,
 High Skill Masters`,
