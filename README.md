@@ -27,3 +27,4 @@ EMAIL_DEFAULT_TO=
 | `/members/subscribe`   | POST   | Subscribe new member | `email` | -               |
 | `/members/unsubscribe` | POST   | Unsubscribe member   | `email` | -               |
 | `/members/verify`      | GET    | Verify member email  | -       | `email`, `code` |
+| `/tokens`              | GET    | Get all tokens       | -       | `api_key`       |
