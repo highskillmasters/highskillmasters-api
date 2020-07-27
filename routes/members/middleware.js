@@ -99,7 +99,7 @@ High Skill Masters`,
       if (member.isVerified) {
         // Response if member email is already verified
         log.info('MEMBER_VERIFIED_ALREADY', emailAddress)
-        res.status(200).send({
+        res.status(400).send({
           message: 'Verify member stopped because already verified',
           email: emailAddress,
         })
