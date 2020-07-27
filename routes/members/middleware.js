@@ -7,9 +7,12 @@ const email = require('../../utils/email')
 const log = require('../../utils/log')
 
 const members = {
-  index: (req, res) => {
+  get: async (req, res) => {
+    const foundMembers = await Member.find()
+
     res.status(200).send({
-      title: 'Members API',
+      message: 'Get all members',
+      data: foundMembers,
     })
   },
 

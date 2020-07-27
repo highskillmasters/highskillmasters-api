@@ -1,9 +1,10 @@
 const express = require('express')
 const router = express.Router()
 
+const auth = require('../auth/middleware')
 const members = require('./middleware')
 
-router.get('/', members.index)
+router.get('/', auth.isAuthorized, members.get)
 router.post('/subscribe', members.subscribe)
 router.get('/unsubscribe', members.unsubscribe)
 router.get('/verify', members.verify)
