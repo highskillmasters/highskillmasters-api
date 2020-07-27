@@ -23,7 +23,7 @@ const members = {
     if (foundMember) {
       // Response if member email is duplicate
       log.info('MEMBER_SUBSCRIBE_FAILED', emailAddress)
-      res.status(400).send({
+      res.status(409).send({
         message: 'Subscribe email failed because already subscribed',
         email: emailAddress,
       })
