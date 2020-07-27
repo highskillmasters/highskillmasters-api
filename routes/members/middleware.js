@@ -84,7 +84,7 @@ High Skill Masters`,
   },
 
   verify: async (req, res) => {
-    const emailAddress = req.query.email
+    const emailAddress = req.query.email.replace(/ /g, '+')
     const verifyCode = req.query.code
     const member = await Member.findOne({ email: emailAddress })
 
