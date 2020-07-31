@@ -5,8 +5,9 @@
   "scripts": {
     "dev": "nodemon index.js",
     "start": "node index.js",
-    "postinstall": "./setup.sh",
-    "test": "jest"
+    "test": "jest",
+    "lint": "eslint --ext .js .",
+    "postinstall": "./setup.sh"
   },
   "dependencies": {
     "cookie-parser": "~1.4.4",

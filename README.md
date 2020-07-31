@@ -21,11 +21,13 @@ EMAIL_DEFAULT_TO=
 
 ## API Documentation
 
-| Endpoints              | Method | Description          | Data    | Query           |
-| ---------------------- | ------ | -------------------- | ------- | --------------- |
-| `/`                    | GET    | Hello message        | -       | -               |
-| `/members`             | GET    | Get all members      | -       | `api_key`       |
-| `/members/subscribe`   | POST   | Subscribe new member | `email` | -               |
-| `/members/unsubscribe` | POST   | Unsubscribe member   | `email` | -               |
-| `/members/verify`      | GET    | Verify member email  | -       | `email`, `code` |
-| `/tokens`              | GET    | Get all tokens       | -       | `api_key`       |
+| Endpoints              | Method | Description          | Headers         | Query           | Body    |
+| ---------------------- | ------ | -------------------- | --------------- | --------------- | ------- |
+| `/`                    | GET    | Hello message        | -               | -               | -       |
+| `/auth`                | GET    | Get auth index       | -               | -               | -       |
+| `/auth/login`          | GET    | Login as admin       | `Authorization` | `api_key`       | -       |
+| `/members`             | GET    | Get all members      | `Authorization` | `api_key`       | -       |
+| `/members/subscribe`   | POST   | Subscribe new member | -               | -               | `email` |
+| `/members/unsubscribe` | POST   | Unsubscribe member   | -               | -               | `email` |
+| `/members/verify`      | GET    | Verify member email  | -               | `email`, `code` | -       |
+| `/tokens`              | GET    | Get all tokens       | `Authorization` | `api_key`       | -       |

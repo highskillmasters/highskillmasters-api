@@ -11,3 +11,7 @@ Content-Type: application/json
 
 ### Verify member email
 GET http://localhost:3000/members/verify?email=haidar@example.com
+
+### Login as admin
+POST http://localhost:3000/auth/login
+Authorization: Bearer {token}
