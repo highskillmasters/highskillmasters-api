@@ -23,7 +23,7 @@ const auth = {
     const isCorrect = apiKey === process.env.PLATFORM_API_KEY
 
     if (!isCorrect) {
-      res.status(400).send({
+      res.status(401).send({
         message: 'Login failed'
       })
     } else {
