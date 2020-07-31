@@ -1,6 +1,9 @@
 ### Get index
 GET http://localhost:3000
 
+### Get all members
+GET http://localhost:3000/members?api_key={token}
+
 ### Subscribe new member email
 POST http://localhost:3000/members/subscribe
 Content-Type: application/json

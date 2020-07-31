@@ -5,8 +5,8 @@ const auth = {
     })
   },
 
-  isAuthorized: (req, res, next) => {
-    const apiKey = req.query.api_key || req.headers.authorization.split(' ')[1]
+  hasApiKey: (req, res, next) => {
+    const apiKey = req.query.api_key
     const isCorrect = apiKey === process.env.PLATFORM_API_KEY
 
     if (!isCorrect) {
@@ -19,11 +19,11 @@ const auth = {
   },
 
   login: (req, res) => {
-    const apiKey = req.query.api_key || req.headers.authorization.split(' ')[1]
+    const apiKey = req.query.api_key || req.body.apiKey
     const isCorrect = apiKey === process.env.PLATFORM_API_KEY
 
     if (!isCorrect) {
-      res.status(400).send({
+      res.status(401).send({
         message: 'Login failed'
       })
     } else {
