@@ -6,9 +6,7 @@ const auth = {
   },
 
   hasApiKey: (req, res, next) => {
-    const apiKey =
-      req.query.api_key ||
-      (req.headers && req.headers.authorization.split(' ')[1])
+    const apiKey = req.query.api_key
     const isCorrect = apiKey === process.env.PLATFORM_API_KEY
 
     if (!isCorrect) {
@@ -21,10 +19,7 @@ const auth = {
   },
 
   login: (req, res) => {
-    const apiKey =
-      req.query.api_key ||
-      (req.headers && req.headers.authorization.split(' ')[1]) ||
-      req.body.apiKey
+    const apiKey = req.query.api_key || req.body.apiKey
     const isCorrect = apiKey === process.env.PLATFORM_API_KEY
 
     if (!isCorrect) {
