@@ -4,9 +4,11 @@
 
 You should have a [MongoDB](https://mongodb.org) instance. Either using basic installation, cloud, or Docker.
 
+We might migrate to other database solution in the future.
+
 ## Prepare Mailgun email
 
-You should retrieve the Mailgun API key from your own account during development.
+You should retrieve the [Mailgun](https://mailgun.com) API key from your own account during development.
 
 ## Install dependencies
 
@@ -34,9 +36,7 @@ EMAIL_DEFAULT_TO=name+other@example.com
 
 ## Prepare web
 
-Before going further, you should clone the [web repo](https://github.com/highskillmasters/highskillmasters-web) first, then run the development server of React. So you can understand what's really needed.
-
-During development, it is not encouraged to use the production API.
+Before going further, you should also clone the [web repo](https://github.com/highskillmasters/highskillmasters-web) and [web admin repo](https://github.com/highskillmasters/highskillmasters-web-admin), then run the development server of React of each. So you can understand what's really needed in the client-side.
 
 ## Run development
 

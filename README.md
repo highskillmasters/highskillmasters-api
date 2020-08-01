@@ -1,9 +1,11 @@
 # High Skill Masters API
 
-High Skill Masters web application that allows:
+High Skill Masters API that allows:
 
-- Subscribe a new member.
-- Verify member's email.
+- Subscribe a new member
+- Verify member's email
+- Get verification tokens
+- Unsubscribe member
 
 For getting started as a developer, read the [CONTRIBUTING](./CONTRIBUTING.md) file. It also includes the API documentation.
 
@@ -31,7 +33,6 @@ For getting started as a developer, read the [CONTRIBUTING](./CONTRIBUTING.md) f
 - Mailgun
 - dotenv
 - crypto
-- axios/redaxios
 - Jest
 - Sinon
 - ESLint
