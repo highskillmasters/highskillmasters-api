@@ -14,14 +14,29 @@ For getting started as a developer, read the [CONTRIBUTING](./CONTRIBUTING.md) f
 - VS Code
 - JavaScript
 - Node.js
+  - nvm
+  - Yarn
+- MongoDB
+- PM2
 
 ### Libraries
 
 - Express
+  - debug
+  - cors
+  - morgan
+  - cookie-parser
+- Mongoose
+  - Mongoose Sequence
+- Mailgun
+- dotenv
+- crypto
 - axios/redaxios
 - Jest
+- Sinon
 - ESLint
 - Prettier
+- Nodemon
 
 ### Infrastructure
 
@@ -29,6 +44,8 @@ For getting started as a developer, read the [CONTRIBUTING](./CONTRIBUTING.md) f
 - Cloudflare
 - Google Cloud Platform
   - Google Compute Engine
+    - Nginx
+    - Let's Encrypt certbot
   - Google App Engine
 
 ## License
